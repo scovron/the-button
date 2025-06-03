@@ -76,7 +76,7 @@ jobs:
         # Użyj tylko skróconego SHA jako tagu
         SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
         # Taguj obraz
-        #docker tag the-button:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/the-button:${SHORT_SHA}
+        docker tag the-button:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/the-button:${SHORT_SHA}
         docker tag the-button:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/the-button:latest
         # Publikuj obraz
         docker push ${{ secrets.DOCKER_USERNAME }}/the-button:${SHORT_SHA}
